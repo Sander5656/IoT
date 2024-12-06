@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alumnos y Asistencias</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        th {
+            background-color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #222;
+        }
+         
+        form {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #555;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+    <table>
+        <tr>
+            <th>ID Tarjeta</th>
+            <th>Num Lista</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Código Alumno</th>
+        </tr>
+        {% for alumno in alumnos %}
+            <tr>
+                <td>{{ alumno[0] }}</td>
+                <td>{{ alumno[1] }}</td>
+                <td>{{ alumno[2] }}</td>
+                <td>{{ alumno[3] }}</td>
+                <td>{{ alumno[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Lista de Asistencias</h1>
+    <table>
+        <tr>
+            
+            <th>Num Lista</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+        </tr>
+        {% for asistencia in asistencias %}
+            <tr>
+                <td>{{ asistencia[0] }}</td>
+                <td>{{ asistencia[1] }}</td>
+                <td>{{ asistencia[2] }}</td>
+                <td>{{ asistencia[3] }}</td>
+                <td>{{ asistencia[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/formulario">
+        <button type="button">Agregar alumno</button>
+    </a>
+</body>
+</html>
